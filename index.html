@@ -8,16 +8,15 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-
-  <!-- 🔝 NAV -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <img src="logo.JPG" alt="Salamix Gourmet" />
+        <img src="logo.JPG" alt="Logo Salamix" />
       </div>
       <ul class="menu" id="menu">
         <li><a href="#inicio"><i data-lucide="home"></i>Inicio</a></li>
-        <li><a href="#sabor"><i data-lucide="flame"></i>Sabor Único</a></li>
+        <li><a href="#sabor"><i data-lucide="flame"></i>Conoce el Producto</a></li>
         <li><a href="#compra"><i data-lucide="shopping-cart"></i>Compra</a></li>
         <li><a href="#contacto"><i data-lucide="mail"></i>Contáctanos</a></li>
       </ul>
@@ -27,40 +26,46 @@
     </div>
   </nav>
 
-  <!-- 🏠 INICIO -->
+  <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="overlay"></div>
     <div class="hero-content">
-      <img src="logo.JPG" alt="Salamix Logo" class="logo-hero" />
+      <img src="logo.JPG" alt="Logo Salamix" class="logo-hero" />
       <h1>El auténtico sabor gourmet en cada rebanada</h1>
       <p>Descubre la mezcla perfecta entre salami artesanal, manzana y cereza.</p>
-      <button class="boton principal" onclick="scrollToSection('compra')">
-        ¡Ordena ahora!
-      </button>
+      <button class="boton principal" id="botonOrdenar">¡Ordena ahora!</button>
     </div>
   </section>
 
-  <!-- 🍷 SABOR -->
-  <section class="seccion sabor fade-in" id="sabor">
+  <!-- CONOCE EL PRODUCTO -->
+  <section class="seccion sabor" id="sabor">
     <div class="texto">
-      <h2>Un Sabor Inigualable</h2>
+      <h2>Conoce el Producto</h2>
       <p>
-        Salamix combina lo mejor del arte culinario: el sabor intenso del salami con la dulzura de la manzana y la cereza.
-        Un producto gourmet hecho con pasión y pensado para los paladares más exigentes.
+        <strong>Salamix Gourmet</strong> es una obra maestra de la charcutería dominicana. Elaborado con carne de
+        primera calidad, trozos naturales de manzana y cereza, combina lo mejor del sabor tradicional con un toque
+        moderno y sofisticado.
       </p>
+      <p>
+        Ideal para tablas de quesos, acompañar vinos tintos o realzar tus reuniones especiales. Cada pieza se cura
+        cuidadosamente para garantizar un sabor balanceado, intenso y fresco hasta el último bocado.
+      </p>
+
       <div class="iconos">
-        <div><i data-lucide="heart"></i> Artesanal</div>
-        <div><i data-lucide="wine"></i> Ideal para vino tinto</div>
+        <div><i data-lucide="heart"></i> 100% Artesanal</div>
+        <div><i data-lucide="wine"></i> Perfecto con vino tinto</div>
         <div><i data-lucide="snowflake"></i> Duración: 30 días refrigerado</div>
+        <div><i data-lucide="award"></i> Hecho en República Dominicana</div>
       </div>
     </div>
+
     <div class="imagen">
-      <img src="imagen1.jpg" alt="Salamix Gourmet en tabla" />
+      <img src="imagen4.jpg" alt="Salamix Gourmet con vino y queso" />
     </div>
   </section>
 
-  <!-- 🛒 COMPRA -->
-  <section class="seccion comprar fade-in" id="compra">
+  <!-- COMPRA -->
+  <section class="seccion comprar" id="compra">
     <div class="producto">
       <img src="imagen3.jpg" alt="Salamix Producto" />
       <h2>Salamix Gourmet</h2>
@@ -68,15 +73,17 @@
         Delicioso salami artesanal con manzana y cereza.<br />
         <strong>Vida útil: 30 días refrigerado</strong>
       </p>
+      <h3 class="precio">Precio: <span id="precioUnidad">RD$250</span></h3>
       <div class="carrito">
         <label for="cantidad">Cantidad:</label>
         <input type="number" id="cantidad" value="1" min="1" />
       </div>
-      <button class="boton principal" onclick="abrirPago()">Añadir al carrito</button>
+      <h4 id="totalPreview">Total: RD$250</h4>
+      <button class="boton principal" onclick="abrirPago()">Procesar pago</button>
     </div>
   </section>
 
-  <!-- 💳 FORMULARIO DE PAGO -->
+  <!-- FORMULARIO DE PAGO -->
   <div class="modal" id="modalPago">
     <div class="modal-contenido">
       <h2>Finaliza tu pedido</h2>
@@ -96,25 +103,26 @@
             <label>Expiración</label>
             <input type="month" required />
           </div>
-          <div class="mitad">
+          <div class="mitad cvv">
             <label>CVV</label>
-            <input type="text" maxlength="4" required />
+            <input type="text" maxlength="3" required />
           </div>
         </div>
+        <p class="monto-pago">Monto a pagar: <span id="montoFinal">RD$350</span></p>
         <button class="boton principal grande" type="submit">Confirmar Pago</button>
-        <button type="button" id="cerrarPago" class="boton cerrar">Cerrar</button>
+        <button type="button" class="boton cerrar" id="cerrarPago">Cerrar</button>
       </form>
     </div>
   </div>
 
-  <!-- 📩 CONTACTO -->
-  <section class="seccion contacto fade-in" id="contacto">
+  <!-- CONTACTO -->
+  <section class="seccion contacto" id="contacto">
     <h2>Contáctanos</h2>
-    <p>Completa el formulario y te responderemos a la brevedad.</p>
+    <p>Completa el formulario y te responderemos pronto.</p>
     <button class="boton principal" id="abrirContacto">Enviar Mensaje</button>
   </section>
 
-  <!-- 📞 FORMULARIO CONTACTO -->
+  <!-- FORMULARIO DE CONTACTO -->
   <div class="modal" id="modalContacto">
     <div class="modal-contenido">
       <h2>Contáctanos</h2>
@@ -126,43 +134,55 @@
         <label>Mensaje</label>
         <textarea required></textarea>
         <button type="submit" class="boton principal">Enviar</button>
-        <button type="button" id="cerrarContacto" class="boton cerrar">Cerrar</button>
+        <button type="button" class="boton cerrar" id="cerrarContacto">Cerrar</button>
       </form>
     </div>
   </div>
 
-  <!-- 🧭 FOOTER -->
+  <!-- FOOTER -->
   <footer>
     📍 Santo Domingo, República Dominicana <br />
     📧 ventas.salamix@gmail.com | 📞 +1 (809) 555-2345 <br />
     © 2025 Salamix Gourmet | Proyecto Final – O&M
   </footer>
 
+  <!-- SCRIPT -->
   <script>
     lucide.createIcons();
 
     const toggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("active");
-    });
+    toggle.addEventListener("click", () => menu.classList.toggle("active"));
     menu.querySelectorAll("a").forEach(link =>
       link.addEventListener("click", () => menu.classList.remove("active"))
     );
 
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById("botonOrdenar").addEventListener("click", () => {
+      document.getElementById("compra").scrollIntoView({ behavior: "smooth" });
+    });
+
+    const precioUnitario = 250;
+    const cantidadInput = document.getElementById("cantidad");
+    const totalPreview = document.getElementById("totalPreview");
+    const montoFinal = document.getElementById("montoFinal");
+
+    cantidadInput.addEventListener("input", () => {
+      const cantidad = Math.max(1, parseInt(cantidadInput.value) || 1);
+      const total = (cantidad * precioUnitario).toFixed(0);
+      totalPreview.textContent = `Total: RD$${total}`;
+      montoFinal.textContent = `RD$${total}`;
+    });
 
     function abrirPago() {
       document.getElementById("modalPago").style.display = "flex";
+      cantidadInput.dispatchEvent(new Event("input"));
     }
     document.getElementById("cerrarPago").onclick = () =>
       (document.getElementById("modalPago").style.display = "none");
 
-    document.getElementById("formPago").onsubmit = (e) => {
+    document.getElementById("formPago").onsubmit = e => {
       e.preventDefault();
-      alert("🎉 ¡Gracias por tu compra! Tu pedido llegará en 24 horas.");
+      alert(`🎉 ¡Gracias por tu compra! Monto pagado: ${montoFinal.textContent}. Tu pedido llegará en 24 horas.`);
       location.reload();
     };
 
@@ -171,7 +191,7 @@
     document.getElementById("cerrarContacto").onclick = () =>
       (document.getElementById("modalContacto").style.display = "none");
 
-    document.getElementById("formContacto").onsubmit = (e) => {
+    document.getElementById("formContacto").onsubmit = e => {
       e.preventDefault();
       alert("📩 ¡Gracias por contactarnos! Te responderemos pronto.");
       location.reload();

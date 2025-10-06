@@ -375,17 +375,7 @@ footer {
     transform: scale(1.05);
     transition: 0.4s ease;
   }
-  .logo {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* separación entre el salami y el logo */
+
 }
 
-.icono-salami {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%; /* opcional: lo hace redondo */
-  object-fit: cover;
-}
-}
 

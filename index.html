@@ -33,38 +33,35 @@
       <img src="logo.JPG" alt="Logo Salamix" class="logo-hero" />
       <h1>El auténtico sabor gourmet en cada rebanada</h1>
       <p>Disfruta la combinación perfecta de salami, manzana y cereza.</p>
-      <button class="boton principal" onclick="scrollToSection('compra')">
-        ¡Pruébalo Ahora!
-      </button>
+      <button class="boton principal" onclick="scrollToSection('compra')">¡Pruébalo Ahora!</button>
     </div>
   </section>
 
-  <!-- 🍷 SECCIÓN SABOR -->
+  <!-- 🍷 SABOR -->
   <section class="seccion sabor fade-in" id="sabor">
     <div class="sabor-texto">
       <h2>El toque exclusivo de Salamix 🍒</h2>
       <p>
-        Una experiencia gourmet inigualable: nuestro salami artesanal fusiona
-        el sabor intenso del embutido con la dulzura natural de la manzana y la
-        cereza. Perfecto para tablas, vinos y momentos especiales.
+        Nuestro salami gourmet fusiona el sabor artesanal con trozos de manzana
+        y cereza natural. Ideal para maridar con vinos o disfrutar en familia.
       </p>
       <div class="iconos">
-        <div class="icon-card"><i data-lucide="wine"></i>Ideal para vino tinto</div>
-        <div class="icon-card"><i data-lucide="heart"></i>Hecho con pasión</div>
-        <div class="icon-card"><i data-lucide="snowflake"></i>Duración: 30 días refrigerado</div>
+        <div class="icon-card"><i data-lucide="wine"></i> Perfecto para vino tinto</div>
+        <div class="icon-card"><i data-lucide="heart"></i> Hecho con pasión</div>
+        <div class="icon-card"><i data-lucide="snowflake"></i> Dura 30 días refrigerado</div>
       </div>
     </div>
     <div class="sabor-img">
-      <img src="imagen1.jpg" alt="Tabla de Salamix Gourmet" />
+      <img src="imagen1.jpg" alt="Tabla Salamix Gourmet" />
     </div>
   </section>
 
   <!-- 🛒 COMPRA -->
   <section class="seccion comprar fade-in" id="compra">
     <div class="producto-card">
-      <img src="imagen3.jpg" alt="Producto Salamix" />
+      <img src="imagen3.jpg" alt="Salamix Producto" />
       <h2>Salamix Gourmet</h2>
-      <p>Salami artesanal con trozos de manzana y cereza. <br /><strong>Vida útil: 30 días refrigerado.</strong></p>
+      <p>Salami artesanal con manzana y cereza. <br><strong>Vida útil: 30 días refrigerado.</strong></p>
       <div class="carrito">
         <label for="cantidad">Cantidad:</label>
         <input type="number" id="cantidad" value="1" min="1" />
@@ -76,40 +73,19 @@
   <!-- 💳 MODAL PAGO -->
   <div class="modal" id="modalPago">
     <div class="modal-contenido">
-      <span class="cerrar" id="cerrarPago">&times;</span>
       <h2>Finaliza tu pedido</h2>
       <form id="formPago">
-        <div class="campo">
-          <label><i data-lucide="user"></i> Nombre completo</label>
-          <input type="text" required />
-        </div>
-        <div class="campo">
-          <label><i data-lucide="mail"></i> Correo electrónico</label>
-          <input type="email" required />
-        </div>
-        <div class="campo">
-          <label><i data-lucide="phone"></i> Teléfono</label>
-          <input type="tel" required />
-        </div>
-        <div class="campo">
-          <label><i data-lucide="home"></i> Dirección de entrega</label>
-          <textarea required></textarea>
-        </div>
-        <div class="campo">
-          <label><i data-lucide="credit-card"></i> Número de tarjeta</label>
-          <input type="text" maxlength="16" required />
-        </div>
+        <div class="campo"><label>Nombre completo</label><input type="text" required /></div>
+        <div class="campo"><label>Correo electrónico</label><input type="email" required /></div>
+        <div class="campo"><label>Teléfono</label><input type="tel" required /></div>
+        <div class="campo"><label>Dirección de entrega</label><textarea required></textarea></div>
+        <div class="campo"><label>Número de tarjeta</label><input type="text" maxlength="16" required /></div>
         <div class="fila">
-          <div class="campo mitad">
-            <label><i data-lucide="calendar"></i> Expiración</label>
-            <input type="month" required />
-          </div>
-          <div class="campo mitad">
-            <label><i data-lucide="lock"></i> CVV</label>
-            <input type="text" maxlength="4" required />
-          </div>
+          <div class="campo mitad"><label>Expiración</label><input type="month" required /></div>
+          <div class="campo mitad"><label>CVV</label><input type="text" maxlength="4" required /></div>
         </div>
         <button class="boton principal grande" type="submit">Confirmar Pago</button>
+        <button type="button" class="boton cerrar-form" id="cerrarPagoBtn">Cerrar</button>
       </form>
     </div>
   </div>
@@ -118,30 +94,19 @@
   <section class="seccion contacto fade-in" id="contacto">
     <h2>Contáctanos</h2>
     <p>Completa el formulario y uno de nuestros representantes te responderá pronto.</p>
-    <button class="boton principal" id="abrirContacto">
-      <i data-lucide="phone-call"></i> Enviar Mensaje
-    </button>
+    <button class="boton principal" id="abrirContacto"><i data-lucide="phone-call"></i> Enviar Mensaje</button>
   </section>
 
   <!-- 💌 MODAL CONTACTO -->
   <div class="modal" id="modal">
     <div class="modal-contenido">
-      <span class="cerrar" id="cerrar">&times;</span>
       <h2>Contáctanos</h2>
       <form id="formContacto">
-        <div class="campo">
-          <label>Nombre:</label>
-          <input type="text" required />
-        </div>
-        <div class="campo">
-          <label>Correo:</label>
-          <input type="email" required />
-        </div>
-        <div class="campo">
-          <label>Mensaje:</label>
-          <textarea required></textarea>
-        </div>
+        <div class="campo"><label>Nombre:</label><input type="text" required /></div>
+        <div class="campo"><label>Correo:</label><input type="email" required /></div>
+        <div class="campo"><label>Mensaje:</label><textarea required></textarea></div>
         <button type="submit" class="boton principal">Enviar</button>
+        <button type="button" class="boton cerrar-form" id="cerrarContactoBtn">Cerrar</button>
       </form>
     </div>
   </div>
@@ -157,55 +122,35 @@
   <script>
     lucide.createIcons();
 
-    // Menú móvil con cierre automático
     const toggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("active");
-    });
-    menu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("active");
-      });
-    });
+    toggle.addEventListener("click", () => menu.classList.toggle("active"));
+    menu.querySelectorAll("a").forEach(link => link.addEventListener("click", () => menu.classList.remove("active")));
 
-    // Abrir y cerrar modal de pago
-    function abrirPago() {
-      document.getElementById("modalPago").style.display = "block";
-    }
-    document.getElementById("cerrarPago").onclick = () =>
-      (document.getElementById("modalPago").style.display = "none");
+    function abrirPago() { document.getElementById("modalPago").style.display = "flex"; }
+    document.getElementById("cerrarPagoBtn").onclick = () => document.getElementById("modalPago").style.display = "none";
 
-    // Envío del formulario de pago
-    document.getElementById("formPago").onsubmit = (e) => {
+    document.getElementById("formPago").onsubmit = e => {
       e.preventDefault();
       alert("🎉 ¡Gracias por tu compra! Tu pedido llegará en 24 horas.");
       location.reload();
     };
 
-    // Modal contacto
     const modal = document.getElementById("modal");
-    document.getElementById("abrirContacto").onclick = () =>
-      (modal.style.display = "block");
-    document.getElementById("cerrar").onclick = () =>
-      (modal.style.display = "none");
+    document.getElementById("abrirContacto").onclick = () => modal.style.display = "flex";
+    document.getElementById("cerrarContactoBtn").onclick = () => modal.style.display = "none";
 
-    // Envío del formulario de contacto
-    document.getElementById("formContacto").onsubmit = (e) => {
+    document.getElementById("formContacto").onsubmit = e => {
       e.preventDefault();
       alert("📩 ¡Gracias por contactarnos! Te responderemos pronto.");
       location.reload();
     };
 
-    // Efectos de aparición
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add("visible");
-      });
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
     });
-    document.querySelectorAll(".fade-in").forEach((e) => obs.observe(e));
+    document.querySelectorAll(".fade-in").forEach(e => obs.observe(e));
 
-    // Scroll a sección
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({ behavior: "smooth" });
     }

@@ -103,15 +103,15 @@ body {
   padding: 0 1rem;
 }
 .logo-hero {
-  width: 200px;
+  width: 180px;
   margin-bottom: 1rem;
 }
 .hero-content h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .hero-content p {
   font-size: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 /* BOTONES */
@@ -120,7 +120,7 @@ body {
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 0.9rem 1.6rem;
+  padding: 0.8rem 1.4rem;
   cursor: pointer;
   transition: 0.3s;
   font-weight: 500;
@@ -201,7 +201,7 @@ input[type="number"] {
   border: 1px solid #ccc;
 }
 
-/* MODALES (ARREGLADOS) */
+/* MODALES MEJORADOS */
 .modal {
   display: none;
   position: fixed;
@@ -212,18 +212,21 @@ input[type="number"] {
   background: rgba(0, 0, 0, 0.6);
   z-index: 999;
   overflow-y: auto;
+  padding: 2rem 0;
 }
+
 .modal-contenido {
   background: white;
-  margin: 5% auto;
-  padding: 2rem;
+  margin: auto;
+  padding: 1.5rem;
   width: 90%;
-  max-width: 420px;
+  max-width: 400px;
   border-radius: 15px;
-  animation: fadeUp 0.5s ease;
+  animation: fadeUp 0.4s ease;
   position: relative;
   box-sizing: border-box;
 }
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -234,6 +237,7 @@ input[type="number"] {
     transform: translateY(0);
   }
 }
+
 .cerrar {
   position: absolute;
   top: 10px;
@@ -245,7 +249,7 @@ input[type="number"] {
 
 /* FORMULARIOS */
 .campo {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   text-align: left;
 }
 .campo label {
@@ -260,7 +264,7 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: 0.3s;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 .campo input:focus,
 .campo textarea:focus {
@@ -316,21 +320,22 @@ footer {
     display: block;
   }
   .hero-content h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .hero-content p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .sabor {
     flex-direction: column;
-    text-align: center;
   }
   .producto-card {
     width: 90%;
   }
+  .modal {
+    padding: 1rem;
+  }
   .modal-contenido {
-    margin: 10% auto;
-    width: 92%;
-    padding: 1.5rem;
+    width: 95%;
+    padding: 1.2rem;
   }
 }

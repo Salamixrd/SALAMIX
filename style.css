@@ -1,3 +1,4 @@
+/* === ESTILOS GLOBALES === */
 * {
   margin: 0;
   padding: 0;
@@ -6,19 +7,18 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #fffaf6;
+  background: #fff9f5;
   color: #333;
-  overflow-x: hidden;
 }
 
-/* 🔝 NAV */
+/* === NAVBAR === */
 .navbar {
+  background: linear-gradient(90deg, #800000, #b22);
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(90deg, #8b0000, #b80000);
-  padding: 10px 20px;
   z-index: 1000;
+  padding: 10px 20px;
 }
 
 .nav-container {
@@ -30,7 +30,7 @@ body {
 }
 
 .logo img {
-  height: 50px;
+  height: 45px;
 }
 
 .menu {
@@ -40,75 +40,102 @@ body {
 }
 
 .menu a {
-  color: white;
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s;
 }
 
 .menu a:hover {
-  color: #ffd1d1;
+  color: #ffcccc;
 }
 
 .menu-toggle {
   display: none;
-  cursor: pointer;
   color: white;
+  cursor: pointer;
 }
 
-/* 🏠 HERO */
+/* === HERO === */
 .hero {
-  height: 100vh;
   background: url("imagen4.jpg") center/cover no-repeat;
-  position: relative;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.hero-content {
-  z-index: 2;
   color: white;
-  max-width: 700px;
-  padding: 20px;
-}
-
-.hero-content h1 {
-  font-size: 2rem;
-  margin: 10px 0;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
+  position: relative;
 }
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
 }
 
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* LOGO PRINCIPAL */
+.logo-hero {
+  width: 280px;
+  margin-bottom: 15px;
+  animation: aparecer 1.2s ease-in-out;
+  filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-content h1 {
+  font-size: 1.9rem;
+  line-height: 1.3;
+  margin-top: 10px;
+}
+
+.hero-content p {
+  margin: 15px 0 20px;
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+/* === BOTONES === */
 .boton {
-  background: linear-gradient(90deg, #8b0000, #b80000);
+  background: linear-gradient(45deg, #b22, #ff5b5b);
   color: white;
-  padding: 10px 25px;
   border: none;
   border-radius: 20px;
+  padding: 10px 25px;
   cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
 
 .boton:hover {
   transform: scale(1.05);
 }
 
-/* 🍷 SABOR */
+.boton.cerrar {
+  background: #666;
+  margin-top: 10px;
+}
+
+/* === SECCIONES GENERALES === */
 .seccion {
   padding: 80px 10%;
   display: flex;
@@ -118,18 +145,48 @@ body {
   gap: 40px;
 }
 
+/* === CONOCE EL PRODUCTO === */
+.sabor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 80px 10%;
+}
+
 .sabor .texto {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
+}
+
+.sabor .imagen {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.sabor .imagen img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.sabor .imagen img:hover {
+  transform: scale(1.03);
 }
 
 .sabor h2 {
   color: #8b0000;
   font-size: 1.8rem;
+  margin-bottom: 15px;
 }
 
 .sabor p {
-  margin: 15px 0;
+  margin-bottom: 10px;
   line-height: 1.6;
 }
 
@@ -137,6 +194,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .sabor .iconos div {
@@ -144,22 +202,19 @@ body {
   padding: 10px 15px;
   border-radius: 10px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.sabor .imagen img {
-  width: 100%;
-  max-width: 450px;
-  border-radius: 15px;
-}
-
-/* 🛒 PRODUCTO */
+/* === PRODUCTO === */
 .producto {
-  background: #fff;
-  padding: 30px;
+  background: white;
+  padding: 25px;
   border-radius: 15px;
   text-align: center;
-  max-width: 500px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .producto img {
@@ -168,11 +223,12 @@ body {
   margin-bottom: 15px;
 }
 
-.carrito {
+.precio {
+  color: #8b0000;
   margin: 10px 0;
 }
 
-/* 💳 MODAL */
+/* === FORMULARIOS Y MODALES === */
 .modal {
   display: none;
   position: fixed;
@@ -187,37 +243,38 @@ body {
   background: white;
   padding: 20px;
   border-radius: 15px;
-  max-width: 400px;
   width: 90%;
-  max-height: 90vh;
+  max-width: 360px;
   overflow-y: auto;
+  max-height: 80vh;
 }
 
 .modal-contenido h2 {
-  color: #8b0000;
   text-align: center;
+  color: #8b0000;
+  margin-bottom: 10px;
 }
 
 .modal-contenido form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 15px;
 }
 
 .modal-contenido input,
 .modal-contenido textarea {
   padding: 8px;
-  border: 1px solid #ccc;
   border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  resize: none;
 }
 
-.modal-contenido .boton.cerrar {
-  background: #444;
-}
-
-.modal-contenido .boton.cerrar:hover {
-  background: #222;
+.monto-pago {
+  text-align: center;
+  font-weight: bold;
+  color: #8b0000;
+  margin-top: 10px;
 }
 
 .fila {
@@ -229,27 +286,55 @@ body {
   flex: 1;
 }
 
-/* 📩 CONTACTO */
-.contacto {
-  background: linear-gradient(90deg, #8b0000, #b80000);
-  color: white;
-  text-align: center;
-  padding: 60px 10%;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+.mitad.cvv input {
+  width: 80%;
 }
 
-/* 🧭 FOOTER */
-footer {
+/* === CONTACTO === */
+.contacto {
+  background: linear-gradient(90deg, #8b0000, #b22);
+  color: white;
   text-align: center;
-  padding: 20px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  padding: 60px 10%;
+}
+
+.contacto h2 {
+  margin-bottom: 10px;
+}
+
+/* === FOOTER === */
+footer {
   background: #2b0000;
   color: white;
+  text-align: center;
+  padding: 20px;
   font-size: 0.9rem;
 }
 
-/* 📱 RESPONSIVO */
-@media (max-width: 768px) {
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .logo-hero {
+    width: 200px;
+  }
+
+  .producto {
+    width: 90%;
+  }
+
+  .modal-contenido {
+    max-width: 320px;
+  }
+
+  .mitad.cvv input {
+    width: 70%;
+  }
+
   .menu {
     display: none;
     flex-direction: column;
@@ -257,8 +342,8 @@ footer {
     position: absolute;
     top: 60px;
     right: 10px;
-    width: 200px;
     border-radius: 10px;
+    padding: 10px;
   }
 
   .menu.active {
@@ -269,15 +354,25 @@ footer {
     display: block;
   }
 
-  .seccion {
-    flex-direction: column;
+  .sabor {
+    flex-direction: column-reverse;
+    text-align: center;
   }
 
   .sabor .imagen img {
-    max-width: 100%;
+    max-width: 90%;
   }
 
-  .producto {
-    width: 90%;
+  .sabor .iconos {
+    justify-content: center;
+  }
+}
+
+/* === EFECTO EXTRA === */
+@media (hover: hover) {
+  .logo-hero:hover {
+    filter: drop-shadow(0px 0px 15px rgba(255, 200, 200, 0.8));
+    transform: scale(1.05);
+    transition: 0.4s ease;
   }
 }

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salamix Gourmet</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo Salamix" />
+    </div>
+    <ul class="menu">
+      <li><a href="#inicio"><i data-lucide="home"></i><span>Inicio</span></a></li>
+      <li><a href="#sabor"><i data-lucide="flame"></i><span>Sabor</span></a></li>
+      <li><a href="#comprar"><i data-lucide="shopping-cart"></i><span>Comprar</span></a></li>
+      <li><a href="#contacto"><i data-lucide="message-circle"></i><span>Contacto</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <img src="logo.jpg" alt="Logo Salamix Gourmet" class="logo-hero" />
+      <h1>Un sabor que despierta los sentidos</h1>
+      <p>La fusión perfecta entre tradición, elegancia y frescura.</p>
+      <button class="boton principal" onclick="document.getElementById('sabor').scrollIntoView({behavior:'smooth'})">
+        Descubre el Sabor 🍷
+      </button>
+    </div>
+  </header>
+
+  <!-- SABOR -->
+  <section id="sabor" class="seccion sabor fade-in">
+    <div class="sabor-texto">
+      <h2>✨ El Sabor Único ✨</h2>
+      <p>
+        Salamix combina la autenticidad del salami artesanal con la frescura de frutas naturales.  
+        Su textura, aroma y sabor despiertan los sentidos, convirtiéndolo en el complemento perfecto
+        para cualquier ocasión elegante.
+      </p>
+      <div class="iconos">
+        <div class="icon-card">🍎 Hecho con frutas reales</div>
+        <div class="icon-card">🥩 Carne premium dominicana</div>
+        <div class="icon-card">❄️ 30 días refrigerado</div>
+      </div>
+    </div>
+    <div class="sabor-img">
+      <img src="imagen1.jpg" alt="Salamix Tabla" />
+    </div>
+  </section>
+
+  <!-- COMPRA -->
+  <section id="comprar" class="seccion comprar fade-in">
+    <h2>Compra tu Salamix 🍴</h2>
+    <p>Selecciona la cantidad y completa tu pedido en segundos.</p>
+    <div class="producto-card">
+      <img src="imagen3.jpg" alt="Empaque Salamix" />
+      <h3>Salamix Gourmet (300 g)</h3>
+      <p><strong>RD$450</strong> por unidad</p>
+      <p class="vida">Vida útil: 30 días refrigerado</p>
+      <div class="carrito">
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" value="1" min="1" />
+        <button class="boton" onclick="abrirPago()">🛒 Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE PAGO -->
+  <div id="modalPago" class="modal">
+    <div class="modal-contenido elegante">
+      <span class="cerrar" id="cerrarPago">&times;</span>
+      <h2>Finaliza tu pedido</h2>
+      <form id="formPago">
+        <div class="campo"><label>👤 Nombre completo</label><input type="text" required /></div>
+        <div class="campo"><label>📧 Correo electrónico</label><input type="email" required /></div>
+        <div class="campo"><label>📞 Teléfono</label><input type="tel" required /></div>
+        <div class="campo"><label>🏠 Dirección de entrega</label><textarea rows="2" required></textarea></div>
+        <div class="campo"><label>💳 Número de tarjeta</label><input type="text" maxlength="16" required /></div>
+        <div class="fila">
+          <div class="campo mitad"><label>📅 Expiración</label><input type="month" required /></div>
+          <div class="campo mitad"><label>🔒 CVV</label><input type="text" maxlength="3" required /></div>
+        </div>
+        <button type="submit" class="boton principal grande">Confirmar Pago</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="seccion contacto fade-in">
+    <h2>¿Deseas contactarnos?</h2>
+    <p>Completa el formulario y uno de nuestros representantes te responderá pronto.</p>
+    <button class="boton principal" id="abrirContacto">📞 Enviar Mensaje</button>
+  </section>
+
+  <!-- MODAL CONTACTO -->
+  <div id="modal" class="modal">
+    <div class="modal-contenido elegante">
+      <span class="cerrar" id="cerrar">&times;</span>
+      <h2>Contáctanos</h2>
+      <form id="formContacto">
+        <div class="campo"><label>Nombre:</label><input type="text" required /></div>
+        <div class="campo"><label>Correo:</label><input type="email" required /></div>
+        <div class="campo"><label>Mensaje:</label><textarea rows="4" required></textarea></div>
+        <button type="submit" class="boton principal">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>📍 Santo Domingo, República Dominicana</p>
+    <p>📧 contacto@salamixgourmet.com | 📞 +1 (809) 555-2345</p>
+    <p>© 2025 Salamix Gourmet | Proyecto Final – O&M</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    lucide.createIcons();
+
+    // Modal pago
+    function abrirPago() {
+      document.getElementById("modalPago").style.display = "block";
+    }
+    document.getElementById("cerrarPago").onclick = () =>
+      (document.getElementById("modalPago").style.display = "none");
+
+    document.getElementById("formPago").onsubmit = (e) => {
+      e.preventDefault();
+      alert("🎉 ¡Gracias por tu compra! Tu pedido llegará en 24 horas.");
+      location.reload(); // reinicia la página
+    };
+
+    // Contacto
+    const modal = document.getElementById("modal");
+    document.getElementById("abrirContacto").onclick = () => (modal.style.display = "block");
+    document.getElementById("cerrar").onclick = () => (modal.style.display = "none");
+
+    document.getElementById("formContacto").onsubmit = (e) => {
+      e.preventDefault();
+      alert("📩 ¡Gracias por contactarnos! Te responderemos pronto.");
+      location.reload(); // reinicia la página
+    };
+
+    // Efectos de aparición
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("visible");
+      });
+    });
+    document.querySelectorAll(".fade-in").forEach((e) => obs.observe(e));
+  </script>
+</body>
+</html>

@@ -68,14 +68,8 @@ body {
   animation: slideDown 0.4s ease;
 }
 @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* HERO */
@@ -91,28 +85,14 @@ body {
 }
 .hero .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.55);
 }
-.hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 0 1rem;
-}
-.logo-hero {
-  width: 180px;
-  margin-bottom: 1rem;
-}
-.hero-content h1 {
-  font-size: 1.8rem;
-}
-.hero-content p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
+.hero-content { position: relative; z-index: 1; padding: 0 1rem; }
+.logo-hero { width: 180px; margin-bottom: 1rem; }
+.hero-content h1 { font-size: 1.8rem; }
+.hero-content p { font-size: 1rem; margin-bottom: 1.5rem; }
 
 /* BOTONES */
 .boton {
@@ -135,84 +115,76 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* MODAL */
+/* SECCIONES */
+.seccion {
+  padding: 5rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.sabor { background: #fff5f5; border-radius: 40px; }
+.sabor-texto { max-width: 500px; text-align: center; }
+.sabor-img img {
+  width: 100%; max-width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.iconos { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.icon-card {
+  background: white;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* MODALES */
 .modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
   z-index: 999;
-  overflow-y: auto;
-  padding: 4rem 1rem;
 }
-
 .modal-contenido {
   background: white;
-  margin: auto;
-  padding: 1.5rem;
+  padding: 1.2rem;
   width: 90%;
-  max-width: 400px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  position: relative;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   animation: fadeUp 0.4s ease;
-  box-sizing: border-box;
 }
-
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* CERRAR MODAL */
-.cerrar {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-  font-size: 26px;
-  color: #a51d1d;
-  font-weight: bold;
-  transition: all 0.3s ease;
+/* FORMULARIOS */
+.campo { margin-bottom: 0.8rem; text-align: left; }
+.campo label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+.campo input, .campo textarea {
+  width: 100%; padding: 0.6rem;
+  border: 1px solid #ccc; border-radius: 8px;
+  transition: 0.3s; font-size: 0.9rem;
 }
-.cerrar:hover {
-  transform: rotate(90deg) scale(1.2);
-  color: #7a1515;
+.campo input:focus, .campo textarea:focus {
+  border-color: #a51d1d; box-shadow: 0 0 6px #ffb0b0;
 }
-
-/* FORMULARIO */
-.campo {
-  margin-bottom: 0.8rem;
-  text-align: left;
+.fila { display: flex; gap: 1rem; }
+.mitad { flex: 1; }
+.grande { width: 100%; margin-top: 0.8rem; }
+.cerrar-form {
+  background: #555;
+  margin-top: 0.5rem;
 }
-.campo label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-.campo input,
-.campo textarea {
-  width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: 0.3s;
-  font-size: 0.9rem;
-}
-.campo input:focus,
-.campo textarea:focus {
-  border-color: #a51d1d;
-  box-shadow: 0 0 6px #ffb0b0;
+.cerrar-form:hover {
+  background: #333;
 }
 
 /* CONTACTO */
@@ -235,32 +207,7 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .menu {
-    display: none;
-  }
-  .menu-toggle {
-    display: block;
-  }
-  .hero-content h1 {
-    font-size: 1.4rem;
-  }
-  .hero-content p {
-    font-size: 0.95rem;
-  }
-
-  .modal {
-    padding: 3.5rem 0.5rem;
-  }
-
-  .modal-contenido {
-    width: 95%;
-    padding: 1.2rem;
-    margin-top: 1rem;
-  }
-
-  .cerrar {
-    top: 8px;
-    right: 10px;
-    font-size: 24px;
-  }
+  .menu { display: none; }
+  .menu-toggle { display: block; }
+  .modal-contenido { width: 95%; padding: 1rem; }
 }

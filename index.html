@@ -4,22 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Salamix Gourmet</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="salamix.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="logo">
-      <img src="logo.JPG" alt="Logo Salamix" />
+    <div class="nav-container">
+      <div class="logo">
+        <img src="logo.JPG" alt="Logo Salamix" />
+      </div>
+      <div class="menu-toggle" id="menu-toggle">
+        <i data-lucide="menu"></i>
+      </div>
+      <ul class="menu" id="menu">
+        <li><a href="#inicio"><i data-lucide="home"></i> Inicio</a></li>
+        <li><a href="#sabor"><i data-lucide="flame"></i> Sabor</a></li>
+        <li><a href="#comprar"><i data-lucide="shopping-cart"></i> Comprar</a></li>
+        <li><a href="#contacto"><i data-lucide="message-circle"></i> Contacto</a></li>
+      </ul>
     </div>
-    <ul class="menu">
-      <li><a href="#inicio"><i data-lucide="home"></i><span>Inicio</span></a></li>
-      <li><a href="#sabor"><i data-lucide="flame"></i><span>Sabor</span></a></li>
-      <li><a href="#comprar"><i data-lucide="shopping-cart"></i><span>Comprar</span></a></li>
-      <li><a href="#contacto"><i data-lucide="message-circle"></i><span>Contacto</span></a></li>
-    </ul>
   </nav>
 
   <!-- HERO -->
@@ -124,6 +129,14 @@
   <script>
     lucide.createIcons();
 
+    // Menu móvil
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      toggle.classList.toggle("open");
+    });
+
     // Modal pago
     function abrirPago() {
       document.getElementById("modalPago").style.display = "block";
@@ -134,7 +147,7 @@
     document.getElementById("formPago").onsubmit = (e) => {
       e.preventDefault();
       alert("🎉 ¡Gracias por tu compra! Tu pedido llegará en 24 horas.");
-      location.reload(); // reinicia la página
+      location.reload();
     };
 
     // Contacto
@@ -145,7 +158,7 @@
     document.getElementById("formContacto").onsubmit = (e) => {
       e.preventDefault();
       alert("📩 ¡Gracias por contactarnos! Te responderemos pronto.");
-      location.reload(); // reinicia la página
+      location.reload();
     };
 
     // Efectos de aparición
@@ -158,4 +171,3 @@
   </script>
 </body>
 </html>
-

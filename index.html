@@ -1,159 +1,274 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Salamix Gourmet</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-  <!-- 🔝 NAVBAR -->
-  <nav class="navbar">
+
+  <!-- NAV -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
-      <div class="logo">
-        <img src="logo.JPG" alt="Logo Salamix" />
+      <div class="brand">
+        <img src="logo.JPG" alt="Salamix logo" class="brand-logo">
       </div>
-      <ul class="menu" id="menu">
-        <li><a href="#inicio"><i data-lucide="home"></i>Inicio</a></li>
-        <li><a href="#sabor"><i data-lucide="flame"></i>Sabor Único</a></li>
-        <li><a href="#compra"><i data-lucide="shopping-cart"></i>Compra</a></li>
-        <li><a href="#contacto"><i data-lucide="mail"></i>Contáctanos</a></li>
-      </ul>
-      <div class="menu-toggle" id="menu-toggle">
+
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
         <i data-lucide="menu"></i>
-      </div>
+      </button>
+
+      <ul id="menu" class="menu" role="menubar">
+        <li role="none"><a role="menuitem" href="#inicio">Inicio</a></li>
+        <li role="none"><a role="menuitem" href="#sabor">Sabor</a></li>
+        <li role="none"><a role="menuitem" href="#compra">Compra</a></li>
+        <li role="none"><a role="menuitem" href="#contacto">Contáctanos</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- 🏠 HERO -->
-  <section class="hero" id="inicio">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <img src="logo.JPG" alt="Logo Salamix" class="logo-hero" />
-      <h1>El auténtico sabor gourmet en cada rebanada</h1>
-      <p>Disfruta la combinación perfecta de salami, manzana y cereza.</p>
-      <button class="boton principal" onclick="scrollToSection('compra')">¡Pruébalo Ahora!</button>
-    </div>
-  </section>
+  <main>
 
-  <!-- 🍷 SABOR -->
-  <section class="seccion sabor fade-in" id="sabor">
-    <div class="sabor-texto">
-      <h2>El toque exclusivo de Salamix 🍒</h2>
-      <p>
-        Nuestro salami gourmet fusiona el sabor artesanal con trozos de manzana
-        y cereza natural. Ideal para maridar con vinos o disfrutar en familia.
-      </p>
-      <div class="iconos">
-        <div class="icon-card"><i data-lucide="wine"></i> Perfecto para vino tinto</div>
-        <div class="icon-card"><i data-lucide="heart"></i> Hecho con pasión</div>
-        <div class="icon-card"><i data-lucide="snowflake"></i> Dura 30 días refrigerado</div>
-      </div>
-    </div>
-    <div class="sabor-img">
-      <img src="imagen1.jpg" alt="Tabla Salamix Gourmet" />
-    </div>
-  </section>
-
-  <!-- 🛒 COMPRA -->
-  <section class="seccion comprar fade-in" id="compra">
-    <div class="producto-card">
-      <img src="imagen3.jpg" alt="Salamix Producto" />
-      <h2>Salamix Gourmet</h2>
-      <p>Salami artesanal con manzana y cereza. <br><strong>Vida útil: 30 días refrigerado.</strong></p>
-      <div class="carrito">
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" value="1" min="1" />
-      </div>
-      <button class="boton principal" onclick="abrirPago()">Añadir al carrito</button>
-    </div>
-  </section>
-
-  <!-- 💳 MODAL PAGO -->
-  <div class="modal" id="modalPago">
-    <div class="modal-contenido">
-      <h2>Finaliza tu pedido</h2>
-      <form id="formPago">
-        <div class="campo"><label>Nombre completo</label><input type="text" required /></div>
-        <div class="campo"><label>Correo electrónico</label><input type="email" required /></div>
-        <div class="campo"><label>Teléfono</label><input type="tel" required /></div>
-        <div class="campo"><label>Dirección de entrega</label><textarea required></textarea></div>
-        <div class="campo"><label>Número de tarjeta</label><input type="text" maxlength="16" required /></div>
-        <div class="fila">
-          <div class="campo mitad"><label>Expiración</label><input type="month" required /></div>
-          <div class="campo mitad"><label>CVV</label><input type="text" maxlength="4" required /></div>
+    <!-- HERO -->
+    <header id="inicio" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <img src="logo.JPG" alt="Salamix" class="hero-logo" />
+        <h1>El auténtico sabor gourmet en cada rebanada</h1>
+        <p>Salami artesanal con trozos de manzana y cereza — perfecto para tablas y maridajes.</p>
+        <div class="hero-actions">
+          <button class="btn primary" onclick="scrollTo('compra')">Pruébalo ahora</button>
+          <button class="btn ghost" onclick="scrollTo('sabor')">Conoce el sabor</button>
         </div>
-        <button class="boton principal grande" type="submit">Confirmar Pago</button>
-        <button type="button" class="boton cerrar-form" id="cerrarPagoBtn">Cerrar</button>
-      </form>
+      </div>
+    </header>
+
+    <!-- SABOR -->
+    <section id="sabor" class="section section--centered">
+      <div class="container grid grid--2">
+        <div class="text">
+          <h2>El toque exclusivo de Salamix</h2>
+          <p>Fusión de tradición y frescura: nuestro salami mezcla la intensidad del embutido con la dulzura natural de la manzana y la cereza.</p>
+          <div class="features">
+            <div class="feature">🍎 Frutas reales</div>
+            <div class="feature">🥩 Carne premium</div>
+            <div class="feature">❄️ 30 días refrigerado</div>
+          </div>
+        </div>
+        <div class="media">
+          <img src="imagen1.jpg" alt="Tabla Salamix" class="responsive-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPRA -->
+    <section id="compra" class="section section--centered">
+      <div class="container">
+        <div class="card product-card">
+          <div class="product-media">
+            <img src="imagen3.jpg" alt="Salamix producto" class="responsive-img">
+          </div>
+          <div class="product-body">
+            <h3>Salamix Gourmet (300 g)</h3>
+            <p class="muted">Salami artesanal con manzana y cereza.</p>
+            <p class="bold">RD$450 <span class="muted"> / unidad</span></p>
+            <p class="small muted">Vida útil: 30 días (refrigerado)</p>
+
+            <label class="label-inline">Cantidad
+              <input id="cantidad" type="number" min="1" value="1" />
+            </label>
+
+            <div style="margin-top:12px;">
+              <button class="btn primary" onclick="abrirPago()">Añadir al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO CTA -->
+    <section id="contacto" class="section section--accent">
+      <div class="container center">
+        <h2>¿Quieres contactarnos?</h2>
+        <p class="muted">Completa el formulario y te responderemos lo antes posible.</p>
+        <button id="abrirContacto" class="btn primary">Enviar Mensaje</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          📍 Santo Domingo, República Dominicana<br>
+          📧 ventas.salamix@gmail.com | 📞 +1 (809) 555-2345
+        </div>
+        <div class="muted">© 2025 Salamix Gourmet | Proyecto Final - O&M</div>
+      </div>
     </div>
-  </div>
-
-  <!-- 📩 CONTACTO -->
-  <section class="seccion contacto fade-in" id="contacto">
-    <h2>Contáctanos</h2>
-    <p>Completa el formulario y uno de nuestros representantes te responderá pronto.</p>
-    <button class="boton principal" id="abrirContacto"><i data-lucide="phone-call"></i> Enviar Mensaje</button>
-  </section>
-
-  <!-- 💌 MODAL CONTACTO -->
-  <div class="modal" id="modal">
-    <div class="modal-contenido">
-      <h2>Contáctanos</h2>
-      <form id="formContacto">
-        <div class="campo"><label>Nombre:</label><input type="text" required /></div>
-        <div class="campo"><label>Correo:</label><input type="email" required /></div>
-        <div class="campo"><label>Mensaje:</label><textarea required></textarea></div>
-        <button type="submit" class="boton principal">Enviar</button>
-        <button type="button" class="boton cerrar-form" id="cerrarContactoBtn">Cerrar</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- 🧭 FOOTER -->
-  <footer>
-    📍 Santo Domingo, República Dominicana <br />
-    📧 ventas.salamix@gmail.com | 📞 +1 (809) 555-2345 <br />
-    © 2025 Salamix Gourmet | Proyecto Final – O&amp;M
   </footer>
 
-  <!-- 💡 SCRIPT -->
+  <!-- MODAL: PAGO -->
+  <div id="modalPago" class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalPagoTitle">
+      <h3 id="modalPagoTitle">Finaliza tu pedido</h3>
+
+      <form id="formPago" class="form-compact">
+        <label>Nombre completo
+          <input name="name" type="text" required>
+        </label>
+
+        <label>Correo electrónico
+          <input name="email" type="email" required>
+        </label>
+
+        <label>Teléfono
+          <input name="phone" type="tel" required>
+        </label>
+
+        <label>Dirección de entrega
+          <textarea name="address" rows="2" required></textarea>
+        </label>
+
+        <label>Número de tarjeta
+          <input name="card" type="text" maxlength="19" inputmode="numeric" required>
+        </label>
+
+        <div class="row">
+          <label class="half">Expiración
+            <input name="exp" type="month" required>
+          </label>
+          <label class="half">CVV
+            <input name="cvv" type="text" maxlength="4" required>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn primary full">Confirmar pago</button>
+          <button type="button" id="closePagoBtn" class="btn ghost full">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CONTACTO -->
+  <div id="modalContacto" class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalContactoTitle">
+      <h3 id="modalContactoTitle">Contáctanos</h3>
+
+      <form id="formContacto" class="form-compact">
+        <label>Nombre
+          <input name="cname" type="text" required>
+        </label>
+
+        <label>Correo
+          <input name="cemail" type="email" required>
+        </label>
+
+        <label>Mensaje
+          <textarea name="cmsg" rows="3" required></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn primary full">Enviar</button>
+          <button type="button" id="closeContactoBtn" class="btn ghost full">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
   <script>
     lucide.createIcons();
 
-    const toggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
-    toggle.addEventListener("click", () => menu.classList.toggle("active"));
-    menu.querySelectorAll("a").forEach(link => link.addEventListener("click", () => menu.classList.remove("active")));
-
-    function abrirPago() { document.getElementById("modalPago").style.display = "flex"; }
-    document.getElementById("cerrarPagoBtn").onclick = () => document.getElementById("modalPago").style.display = "none";
-
-    document.getElementById("formPago").onsubmit = e => {
-      e.preventDefault();
-      alert("🎉 ¡Gracias por tu compra! Tu pedido llegará en 24 horas.");
-      location.reload();
-    };
-
-    const modal = document.getElementById("modal");
-    document.getElementById("abrirContacto").onclick = () => modal.style.display = "flex";
-    document.getElementById("cerrarContactoBtn").onclick = () => modal.style.display = "none";
-
-    document.getElementById("formContacto").onsubmit = e => {
-      e.preventDefault();
-      alert("📩 ¡Gracias por contactarnos! Te responderemos pronto.");
-      location.reload();
-    };
-
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    // menu móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
     });
-    document.querySelectorAll(".fade-in").forEach(e => obs.observe(e));
+    // cerrar menú al seleccionar
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('active')));
 
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    // util: scroll a sección
+    function scrollTo(id) {
+      document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+      // cerrar menú si está abierto (móvil)
+      menu.classList.remove('active');
     }
+
+    // modales
+    const modalPago = document.getElementById('modalPago');
+    const modalContacto = document.getElementById('modalContacto');
+
+    function abrirPago() {
+      modalPago.style.display = 'flex';
+      modalPago.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      // focus primer input
+      setTimeout(()=> modalPago.querySelector('input, textarea').focus(), 200);
+    }
+    function cerrarPago() {
+      modalPago.style.display = 'none';
+      modalPago.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+    function abrirContacto() {
+      modalContacto.style.display = 'flex';
+      modalContacto.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(()=> modalContacto.querySelector('input, textarea').focus(), 200);
+    }
+    function cerrarContacto() {
+      modalContacto.style.display = 'none';
+      modalContacto.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    // botones
+    document.getElementById('openContact')?.addEventListener('click', abrirContacto);
+    document.getElementById('abrirContacto').addEventListener('click', abrirContacto);
+    document.getElementById('closePagoBtn').addEventListener('click', cerrarPago);
+    document.getElementById('closeContactoBtn').addEventListener('click', cerrarContacto);
+
+    // cerrar modales al clic en overlay
+    [modalPago, modalContacto].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          modal.setAttribute('aria-hidden','true');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // ESC para cerrar
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (modalPago.style.display === 'flex') cerrarPago();
+        if (modalContacto.style.display === 'flex') cerrarContacto();
+      }
+    });
+
+    // formularios -> reinicio + mensaje
+    document.getElementById('formPago').addEventListener('submit', function(e){
+      e.preventDefault();
+      // Aquí podrías validar y enviar a un servidor; para demo:
+      alert('🎉 Gracias por tu compra. Tu pedido llegará en 24 horas.');
+      location.reload();
+    });
+
+    document.getElementById('formContacto').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('📩 Gracias por contactarnos. Te responderemos pronto.');
+      location.reload();
+    });
+
   </script>
 </body>
 </html>

@@ -1,175 +1,283 @@
-/* VARIABLES */
-:root{
-  --bg: #fffaf7;
-  --accent-1: #9c1c1c;
-  --accent-2: #c23b3b;
-  --muted: #6b6b6b;
-  --nav-height: 72px;
-  --radius: 14px;
-  --container: 1100px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* RESET TINY */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:#222;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  scroll-behavior:smooth;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fffaf6;
+  color: #333;
+  overflow-x: hidden;
 }
 
-/* NAV */
-.navbar{
-  position:fixed;
-  top:0; left:0; right:0;
-  height:var(--nav-height);
-  background:linear-gradient(90deg,var(--accent-1), #9c1c1c);
-  display:flex; align-items:center;
-  box-shadow:0 6px 18px rgba(0,0,0,0.16);
-  z-index:1200;
-}
-.nav-container{
-  max-width:var(--container); width:100%; margin:0 auto;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:0 16px;
-}
-.brand-logo{height:44px; display:block}
-
-/* menu */
-.menu{
-  display:flex; gap:18px; list-style:none; margin:0; padding:0; align-items:center;
-}
-.menu a{
-  color:#fff; text-decoration:none; font-weight:600;
-  padding:8px 10px; border-radius:8px;
-}
-.menu a:hover{background:rgba(255,255,255,0.06)}
-.menu-toggle{ display:none; background:transparent; border:0; color:white; font-size:20px; cursor:pointer }
-
-/* HERO */
-.hero{
-  margin-top:var(--nav-height);
-  min-height: calc(100vh - var(--nav-height));
-  display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
-  background-image: url('imagen4.jpg');
-  background-size:cover; background-position:center;
-}
-.hero-overlay{
-  position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.48));
-}
-.hero-inner{
-  position:relative; z-index:2; text-align:center; padding:40px 18px; max-width:980px; color:#fff;
-}
-.hero-logo{width:150px; margin-bottom:12px; filter:drop-shadow(0 6px 18px rgba(0,0,0,0.45))}
-.hero-inner h1{font-size:1.6rem; margin:8px 0 6px}
-.hero-inner p{margin:0 0 14px; color:rgba(255,255,255,0.9)}
-
-/* CTA buttons */
-.btn{display:inline-block; border:0; padding:10px 16px; border-radius:12px; cursor:pointer; font-weight:700; transition:all .22s ease}
-.btn.primary{ background:linear-gradient(90deg,var(--accent-1), var(--accent-2)); color:#fff; box-shadow:0 6px 18px rgba(156,28,28,0.28) }
-.btn.primary:hover{ transform:translateY(-3px) }
-.btn.ghost{ background:rgba(255,255,255,0.12); color:#fff; margin-left:8px }
-
-/* LAYOUT */
-.container{ max-width:var(--container); margin:0 auto; padding:0 18px }
-.section{ padding:48px 0 }
-.section--centered{ display:flex; align-items:center; justify-content:center }
-.center{text-align:center}
-
-/* grid 2 columns */
-.grid{ display:grid; gap:28px }
-.grid--2{ grid-template-columns: 1fr 1fr; align-items:center }
-
-/* text styles */
-h2{ margin:0 0 12px; font-size:1.4rem; color:var(--accent-1) }
-.muted{ color:var(--muted); font-size:0.95rem }
-.bold{ font-weight:800 }
-.small{ font-size:0.85rem }
-
-/* features */
-.features{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px }
-.feature{ background:#fff; padding:8px 12px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.06); font-weight:600 }
-
-/* responsive image */
-.responsive-img{ width:100%; height:auto; border-radius:12px; object-fit:cover }
-
-/* PRODUCT CARD */
-.card{ background:linear-gradient(180deg,#fff,#fffaf7); border-radius:14px; padding:12px; box-shadow:0 10px 30px rgba(0,0,0,0.06) }
-.product-card{ display:flex; gap:12px; align-items:center; padding:18px }
-.product-media{ width:40%; }
-.product-body{ width:60% }
-.label-inline{ display:block; margin-top:8px; font-size:0.95rem }
-input[type="number"]{ width:72px; padding:8px; border-radius:8px; border:1px solid #ddd }
-
-/* CTA SECTION */
-.section--accent{ background: linear-gradient(90deg, rgba(156,28,28,0.95), rgba(194,59,59,0.95)); color:#fff; border-top-left-radius:40px; border-top-right-radius:40px; padding:48px 0; }
-
-/* FOOTER */
-.site-footer{ background:#2e0e0e; color:#fff; padding:18px 0; margin-top:18px }
-.footer-grid{ display:flex; justify-content:space-between; gap:16px; align-items:center }
-
-/* MODAL (mejorado y compacto) */
-.modal{
-  display:none; position:fixed; inset:0; z-index:2000;
-  align-items:center; justify-content:center;
-  background: rgba(0,0,0,0.45); padding:20px; overflow:auto;
-}
-.modal[style*="display: flex"]{ animation:fadeIn .18s ease }
-@keyframes fadeIn{ from{opacity:0} to{opacity:1} }
-
-.modal-dialog{
-  width:100%; max-width:420px; border-radius:16px; background:#fff; padding:18px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.2); box-sizing:border-box;
-  max-height: calc(100vh - 120px); overflow:auto;
+/* 🔝 NAV */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #8b0000, #b80000);
+  padding: 10px 20px;
+  z-index: 1000;
 }
 
-/* compact form */
-.form-compact label{ display:block; margin-bottom:10px; font-weight:600; color:#222 }
-.form-compact input, .form-compact textarea{
-  width:100%; padding:10px 12px; border-radius:10px; border:1px solid #e6e6e6;
-  font-size:0.95rem; margin-top:6px; box-shadow:inset 0 1px 0 rgba(0,0,0,0.02);
-}
-.form-compact textarea{ resize:vertical }
-
-/* small row for 2 inputs */
-.row{ display:flex; gap:10px }
-.half{ flex:1 }
-
-/* modal actions (buttons) */
-.modal-actions{ display:flex; gap:10px; margin-top:10px; flex-direction:column }
-.btn.full{ width:100%; padding:12px 14px; border-radius:12px; font-weight:800 }
-
-/* ghost variant for close btn */
-.btn.ghost{ background:transparent; border:1px solid #ddd; color:#333 }
-.btn.ghost:hover{ background:#f4f4f4 }
-
-/* small tweaks */
-.muted{ color:#666 }
-
-/* responsive adjustments */
-@media (max-width: 900px) {
-  .grid--2{ grid-template-columns: 1fr; text-align:center }
-  .product-card{ flex-direction:column; align-items:center }
-  .product-media, .product-body{ width:100% }
-  .footer-grid{ flex-direction:column; gap:8px; text-align:center }
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
 }
 
-@media (max-width: 600px) {
-  :root{ --nav-height:64px }
-  .nav-container{ padding:0 12px }
-  .menu{ display:none }
-  .menu-toggle{ display:inline-flex; align-items:center; justify-content:center; background:transparent; border:0; color:white; font-size:20px }
-  .brand-logo{ height:40px }
-
-  .hero-inner h1{ font-size:1.2rem }
-  .hero-inner p{ font-size:0.95rem }
-  .modal-dialog{ max-width: 95%; padding:14px; border-radius:12px }
-  .modal{ padding:8px }
+.logo img {
+  height: 50px;
 }
 
-/* ensure anchors don't hide under nav */
-html{ scroll-padding-top: calc(var(--nav-height) + 8px); }
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #ffd1d1;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* 🏠 HERO */
+.hero {
+  height: 100vh;
+  background: url("imagen4.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  z-index: 2;
+  color: white;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.boton {
+  background: linear-gradient(90deg, #8b0000, #b80000);
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.boton:hover {
+  transform: scale(1.05);
+}
+
+/* 🍷 SABOR */
+.seccion {
+  padding: 80px 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.sabor .texto {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sabor h2 {
+  color: #8b0000;
+  font-size: 1.8rem;
+}
+
+.sabor p {
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.sabor .iconos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sabor .iconos div {
+  background: #fff0f0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.sabor .imagen img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+}
+
+/* 🛒 PRODUCTO */
+.producto {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.carrito {
+  margin: 10px 0;
+}
+
+/* 💳 MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-contenido {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-contenido h2 {
+  color: #8b0000;
+  text-align: center;
+}
+
+.modal-contenido form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal-contenido input,
+.modal-contenido textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.modal-contenido .boton.cerrar {
+  background: #444;
+}
+
+.modal-contenido .boton.cerrar:hover {
+  background: #222;
+}
+
+.fila {
+  display: flex;
+  gap: 10px;
+}
+
+.mitad {
+  flex: 1;
+}
+
+/* 📩 CONTACTO */
+.contacto {
+  background: linear-gradient(90deg, #8b0000, #b80000);
+  color: white;
+  text-align: center;
+  padding: 60px 10%;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+/* 🧭 FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #2b0000;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #8b0000;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 200px;
+    border-radius: 10px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .seccion {
+    flex-direction: column;
+  }
+
+  .sabor .imagen img {
+    max-width: 100%;
+  }
+
+  .producto {
+    width: 90%;
+  }
+}
